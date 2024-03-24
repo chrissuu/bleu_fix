@@ -1,6 +1,6 @@
 ---
 layout: post
-title: c = 299,792,458 m/s
+title: light waves hi
 subtitle: a brief derivation of the famous constant
 tags: [physics]
 ---
