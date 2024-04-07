@@ -22,5 +22,6 @@ Here, I introduce some definitions that will make the further reading easier. Ta
 >
 >A proof system meets the following criterion:
 >1.     
+>
 
 
