@@ -2,12 +2,12 @@
 layout: post
 title: classrank ep1
 subtitle: ranking the classes I took, year 1 @ CMU
-tags: [random]
+tags: [cmu]
 ---
 
 ### Introduction
 
-This post details the classes I took in my freshman year and what I thought of them. 
+This post details some of the classes I took in my freshman year and what I thought of them. 
 
 ### Semester 1
 
@@ -17,7 +17,7 @@ I came in with several AP credits, but was only able to use my AP CS A and AP Ca
 2. 36-200: Reasoning with Data
 3. 15-122: Principles of Imperative Computing
 4. 76-101: Interpretation and Argument
-5. 66-132: Seminar
+5. Seminar
 
 #### Concepts of Mathematics
 
@@ -162,7 +162,7 @@ However, the tests were in general, a memorization nightmare, while the homework
 2. 36-200: Reasoning with Data
 3. 15-122: Principles of Imperative Computing
 4. 76-101: Interpretation and Argument
-5. 66-132: Seminar
+5. Seminar
 6. 21-241: Matrix Algebra and Linear Transformations
 7. 15-251: Great Ideas in Theoretical Computer Science
 8. 82-282: Interpreting Global Texts and Cultures
