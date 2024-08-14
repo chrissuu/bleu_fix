@@ -70,11 +70,11 @@ Amputees are still human, and I'd think a lot of people would agree that every s
 
 Purely abstractly, one could say the same about a machine that is capable of general intelligence. They have their own "source code" (whether it be neuron weights or architecture: "DNA") as well as experiences / knowledge (learnable weights) that allow them to adapt to their environment. 
 
-**This is why I argue that humans and AGI being differentiable by their biological makeup is trivial.**
+**Humans and AGI being differentiable by their biological / electrical makeup is trivial.**
 
-**Naturally, this points us to a different idea: consciousness or the state of being conscious.**
+Naturally, this points us to a different idea: consciousness or the state of being conscious.
 
-Perhaps we can differentiate humans and AGI by their ability (or inability) to be conscious. 
+**Perhaps we can differentiate humans and AGI by their ability (or inability) to be conscious.**
 
 ### Humans as functions
 
@@ -100,9 +100,9 @@ Notice that by the definition of function, we actually do not care ***how*** the
 
 Much like how humans have "thoughts" in their head, the AGI analogue might be computing some weights according to some distribution, but regardless, functions as a mathematical object do not care what these thoughts are or what the weights being computed are.
 
-### On being conscious
+### Computing consciousness
 
-Remember earlier, that I argued heuristically why, I, to a point of satisfaction, believed that humans are conscious:
+Remember earlier, that I argued heuristically why I, to a point of satisfaction, believed that humans are conscious:
 
 >I am conscious (*), my peers are like me, therefore my peers are conscious. 
 
@@ -114,9 +114,34 @@ We refine our previous argument to the following:
 
 >I am conscious (*), **most** of my peers are like me, therefore **most** of my peers are conscious. 
 
-In general, it seems plausible to also assume that AGI could model a descriptive function for a human, as these are, at the end of the day, still functions. (~Some sort of [universal approximation theorem](https://en.wikipedia.org/wiki/Universal_approximation_theorem) for AGI, perhaps?)
+A lot more formal construction can be written as such:
 
-This, however, implies the following:
+Let $$\mathbb{D}: H -> \mathcal{H}$$ be a function mapping humans $$h \in H$$ (where $$H$$ is the set of all humans) to their descriptive functions.
 
->I am conscious (*), **most** of my peers are like me, AGI is like me, therefore **most** of my peers and AGI are conscious.
+Given some state $$s \in \mathcal{S}$$, time $$t \in \mathbb{R}$$, we define "likeness" to be agreeance in ~99% of function inputs and outputs. 
 
+**(One formality here is that we assume the function inputs and outputs to be countable sets, which I would argue they are - at least the ones we care about / are important for this type of analyses)**
+
+Given $$h_1, h_2 \in H$$, $$h_1$$ is **like** $$h_2$$ (denoted $$h_1 \sim h_2$$) if $$\forall e \in \mathcal{E}, \textbf{Pr}[\mathbb{D}(h_1)(e) \neq \mathbb{D}(h_2)(e)] <= \epsilon$$.
+
+Here, we can now rewrite our above argument like so:
+
+>$$s  \text{ (= self) has property } \mathcal{C}, \forall h \in H \setminus \{s\}, \textbf{Pr}[h \nsim s] <= \epsilon \Rightarrow $$
+>
+>$$\forall h \in H \setminus \{s\}, \textbf{Pr}[h \text{ doesn't have property } \mathcal{C}] = \textbf{Pr}[h \nsim s] <= \epsilon$$
+
+Here, **see that likeness is only locally defined for the "self"**. Hence, there isn't any contradictions when we replace $$s$$ with another member in $$H$$. Also, see here that I leave the $$\epsilon$$ to be arbitrary, as well as the property $$\mathcal{C}$$ to be arbitrary. This means that any property that we predefine that I have and would follow from my likeness, should have that property as well. For now, we left it as $$\mathcal{C} = $$ consciousness. 
+
+In general, it seems plausible to also assume that AGI could learn a descriptive function for a human, as these are, at the end of the day, still functions. (~Some sort of [universal approximation theorem](https://en.wikipedia.org/wiki/Universal_approximation_theorem) for AGI, perhaps?)
+
+To summarize, so far we have shown that under "likeness", if the "self" has some property $$\mathcal{C}$$, then most humans also have the property $$\mathcal{C}$$. In addition, we have assumed that an AGI agent is human-like. That is, $$\forall h \in H, \forall a \in AGI, a \sim h$$. Now, we will show that this system is inconsistent thereby showing that proving the existence of consciousness under likeness is unprovable for not just AGI but also humans!
+
+This follows trivially. 
+
+Let $$\mathcal{C} = \text{ the property of being conscious }$$ and let $$\neg \mathcal{C} = \text { the property of being not conscious }$$
+
+Then, under "likeness", the self, most humans, and most AGI must be conscious. However, under "likeness", if we assume the self is not conscious, then most humans, and most AGI must not be conscious. 
+
+>$$s \text{ has property } \mathcal{C}, AGI \sim s \Rightarrow AGI \text{ has property } \mathcal{C}$$
+
+Hence, a contradiction. We have defined a system that is not conscious, but within our system, it is conscious, and therefore, the initial assumption that 
