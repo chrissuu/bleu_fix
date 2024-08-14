@@ -90,7 +90,7 @@ For an example, think about Billy, who is frying some eggs on Monday and Tuesday
 
 However, there is a small loophole you can use to theoretically make the function well-defined: make the input as complex as possible (which humans do). For example, instead of the input being simply "touching super hot pan", it could be "touching super hot pan on Monday when the window was open, the room temperature was 82 F, the outside weather was sunny, and he touched it at an angle of 84.23492 degrees... etc". Clearly, this function would be well defined since it would be difficult to perfectly replicate the conditions in which an event happened. And if the conditions were replicated exactly, it would only dependent on the time part. 
 
->Formally, something like this: consider $$\mathcal{H}: \mathcal{E} \times \mathcal{S} \times \mathbb{R} \Rightarrow \mathcal{S}$$ being a function that maps all possible events $$\mathcal{E}$$ and input states $$\mathcal{S}$$ and some time $$t \in \mathbb{R}$$ to all possible output states.
+>Formally, something like this: consider $$\mathcal{J}: \mathcal{E} \times \mathcal{S} \times \mathbb{R} \rightarrow \mathcal{S}$$ being a function that maps all possible events $$\mathcal{E}$$ and input states $$\mathcal{S}$$ and some time $$t \in \mathbb{R}$$ to all possible output states.
 
 This is an obvious oversimplification, but it suffices, or shall I say, it is satisfactory. 
 
@@ -108,40 +108,48 @@ Remember earlier, that I argued heuristically why I, to a point of satisfaction,
 
 The previous section argued that humans can be modeled as functions. 
 
-To be a little more formal, let all humans be mapped to a descriptive function. Then, realize a distribution across these functions. Clearly, functions that aren't descriptive to humans will fall outside the distribution, and some humans will be outliers as well.
+To be a little more formal, let all humans be mapped to a descriptive function. That is:
 
-We refine our previous argument to the following:
+Let $$\mathbb{D}: H \rightarrow \mathcal{H}$$ be a function mapping humans $$h \in H$$ (where $$H$$ is the set of all humans) to their descriptive functions.
 
->I am conscious (*), **most** of my peers are like me, therefore **most** of my peers are conscious. 
+Given some state $$s \in \mathcal{S}$$, time $$t \in \mathbb{R}$$, we define "likeness" to be agreeance in ~99% of function outputs. 
 
-A lot more formal construction can be written as such:
+The self-referential "I" is hence a presupposition that refers to "at least one". I will refer to this as the "self":
 
-Let $$\mathbb{D}: H -> \mathcal{H}$$ be a function mapping humans $$h \in H$$ (where $$H$$ is the set of all humans) to their descriptive functions.
+>"self" := "at least one"
 
-Given some state $$s \in \mathcal{S}$$, time $$t \in \mathbb{R}$$, we define "likeness" to be agreeance in ~99% of function inputs and outputs. 
+The "self" can have properties which we will denote with $$\mathcal{C}$$. In our case, $$\mathcal{C}$$ = the state of being conscious / consciousness.
 
-**(One formality here is that we assume the function inputs and outputs to be countable sets, which I would argue they are - at least the ones we care about / are important for this type of analyses)**
+Hence, the following logical remark makes a little more sense:
 
-Given $$h_1, h_2 \in H$$, $$h_1$$ is **like** $$h_2$$ (denoted $$h_1 \sim h_2$$) if $$\forall e \in \mathcal{E}, \textbf{Pr}[\mathbb{D}(h_1)(e) \neq \mathbb{D}(h_2)(e)] <= \epsilon$$.
+>$$\text{self } \in H \text{ is } \mathcal{C}$$ := at least one member in $$H$$ has property $$\mathcal{C}$$.
+
+This aligns with our intuition pretty well: I know I am conscious, but I don't know if everyone else is conscious, even though I might suspect they are. Hence, at least one of the humans here are conscious. 
+
+Given $$h_1, h_2 \in H$$, $$h_1$$ is **like** $$h_2$$ (denoted $$h_1 \sim h_2$$) if $$\forall e \in \mathcal{E}, \textbf{Pr}[\mathbb{D}(h_1)(e) \neq \mathbb{D}(h_2)(e)] \leq \epsilon$$. **Since we haven't defined any probability measure, it's hard to say what this probability might mean for infinite state spaces. Instead, we will say "almost infinite" to mean that it is some arbitrary, super large finite number.**
+
+This definition with likeness also aligns with our intuition: most humans are "almost like" me, and I know I'm "almost like" most humans (as opposed to, say, a fish or a flower). 
 
 Here, we can now rewrite our above argument like so:
 
->$$s  \text{ (= self) has property } \mathcal{C}, \forall h \in H \setminus \{s\}, \textbf{Pr}[h \nsim s] <= \epsilon \Rightarrow $$
+>$$s  \text{ (= self) has property } \mathcal{C}, \forall h \in H \setminus \{s\}, \textbf{Pr}[h \nsim s] \leq \epsilon_{0} \Rightarrow $$
 >
->$$\forall h \in H \setminus \{s\}, \textbf{Pr}[h \text{ doesn't have property } \mathcal{C}] = \textbf{Pr}[h \nsim s] <= \epsilon$$
+>$$\forall h \in H \setminus \{s\}, \textbf{Pr}[h \text{ doesn't have property } \mathcal{C}] = \textbf{Pr}[h \nsim s] \leq \epsilon_{0}$$
 
-Here, **see that likeness is only locally defined for the "self"**. Hence, there isn't any contradictions when we replace $$s$$ with another member in $$H$$. Also, see here that I leave the $$\epsilon$$ to be arbitrary, as well as the property $$\mathcal{C}$$ to be arbitrary. This means that any property that we predefine that I have and would follow from my likeness, should have that property as well. For now, we left it as $$\mathcal{C} = $$ consciousness. 
+Here, **see that likeness is only locally defined for the "self"**. Hence, there isn't any contradiction when we replace $$s$$ with another member in $$H$$. Also, see here that I leave the $$\epsilon$$ to be arbitrary, as well as the property $$\mathcal{C}$$ to be arbitrary. This means that any property that we predefine that I have and would follow from my likeness, should have that property as well. For now, we left it as $$\mathcal{C} = $$ consciousness. Notice that if I suspect **all** humans are like me, then $$\epsilon_{0} = 0$$, and thus all humans also have property $$\mathcal{C}$$.
 
 In general, it seems plausible to also assume that AGI could learn a descriptive function for a human, as these are, at the end of the day, still functions. (~Some sort of [universal approximation theorem](https://en.wikipedia.org/wiki/Universal_approximation_theorem) for AGI, perhaps?)
 
-To summarize, so far we have shown that under "likeness", if the "self" has some property $$\mathcal{C}$$, then most humans also have the property $$\mathcal{C}$$. In addition, we have assumed that an AGI agent is human-like. That is, $$\forall h \in H, \forall a \in AGI, a \sim h$$. Now, we will show that this system is inconsistent thereby showing that proving the existence of consciousness under likeness is unprovable for not just AGI but also humans!
+To summarize, so far we have shown that under "likeness", if the "self" has some property $$\mathcal{C}$$, then to an arbitrary precision humans also have the property $$\mathcal{C}$$. In addition, we have assumed that an AGI agent is a function that can approximate to arbitrary precision to be human-like. That is, $$\forall h \in H, \forall a \in AGI, a \sim h$$. Now, we will show that this system is inconsistent thereby showing that proving the existence of consciousness under likeness is unprovable for not just AGI but also humans!
 
 This follows trivially. 
 
 Let $$\mathcal{C} = \text{ the property of being conscious }$$ and let $$\neg \mathcal{C} = \text { the property of being not conscious }$$
 
-Then, under "likeness", the self, most humans, and most AGI must be conscious. However, under "likeness", if we assume the self is not conscious, then most humans, and most AGI must not be conscious. 
+Then, assuming self has $$\mathcal{C}$$, under "likeness", the self, most humans, and most AGI **must be conscious**. 
 
+Take all AGI that are conscious. Every function that disagrees with $$d \in \mathcal{D}$$ with probability greater than $$\epsilon$$ is not similar to the human that it is mapped from. We want to show that there exists some function that disagrees with all 
+Now, assume self has $$\neg \mathcal{C}$$, under "likeness", the self, most humans, and most AGI **must not be conscious**. Consider all such AGI that must not be conscious. 
 >$$s \text{ has property } \mathcal{C}, AGI \sim s \Rightarrow AGI \text{ has property } \mathcal{C}$$
 
 Hence, a contradiction. We have defined a system that is not conscious, but within our system, it is conscious, and therefore, the initial assumption that 
